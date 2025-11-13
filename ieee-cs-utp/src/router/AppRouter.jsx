@@ -7,7 +7,6 @@ export default function AppRouter() {
   return (
     <HashRouter>
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/nosotros" element={<Nosotros />} />

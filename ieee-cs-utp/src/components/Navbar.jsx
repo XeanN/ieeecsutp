@@ -18,19 +18,18 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full bg-white shadow z-50">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-        {/* -------- LOGO -------- */}
+        {/* LOGO */}
         <Link to="/" className="flex items-center gap-4">
           <img
-            src="/ieeecsutp/logo.png"
+            src={`${import.meta.env.BASE_URL}logo.png`}
             alt="IEEE CS UTP"
             className="h-12"
           />
         </Link>
 
-        {/* -------- MENÚ DESKTOP -------- */}
+        {/* MENU DESKTOP */}
         <div className="hidden md:flex items-center gap-8">
 
-          {/* Links */}
           {navItems.map((item) => (
             <NavLink
               key={item.path}
@@ -47,13 +46,13 @@ export default function Navbar() {
             </NavLink>
           ))}
 
-          {/* -------- BOTÓN SISTEMA -------- */}
+          {/* SISTEMA */}
           <button className="flex items-center gap-2 text-gray-700 hover:text-black">
             <Monitor size={18} />
             <span className="text-sm font-medium">Sistema</span>
           </button>
 
-          {/* -------- SELECTOR DE IDIOMA -------- */}
+          {/* IDIOMA */}
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
@@ -66,13 +65,11 @@ export default function Navbar() {
             {langOpen && (
               <div className="absolute right-0 bg-white shadow-md rounded p-2 w-28">
                 <button
-                  onClick={() => setLangOpen(false)}
                   className="w-full text-left px-2 py-1 hover:bg-gray-100 text-sm"
                 >
                   Español
                 </button>
                 <button
-                  onClick={() => setLangOpen(false)}
                   className="w-full text-left px-2 py-1 hover:bg-gray-100 text-sm"
                 >
                   Inglés
@@ -81,16 +78,18 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* -------- BOTÓN INSCRIBETE -------- */}
+          {/* INSCRIBIR */}
+
           <Link
             to="/inscripcion"
             className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold"
           >
             Inscríbete
           </Link>
+
         </div>
 
-        {/* -------- MENÚ MOBILE BUTTON -------- */}
+        {/* BOTÓN MOBILE */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-gray-800"
@@ -99,7 +98,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* -------- MENÚ MOBILE DESPLEGABLE -------- */}
+      {/* MENÚ MOBILE */}
       {open && (
         <div className="md:hidden bg-white shadow px-6 pb-6">
 
@@ -120,13 +119,13 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            {/* Sistema */}
+            {/* SISTEMA */}
             <button className="flex items-center gap-3 text-gray-700">
               <Monitor size={20} />
               <span className="font-medium">Sistema</span>
             </button>
 
-            {/* Selector de idioma */}
+            {/* IDIOMA */}
             <button
               onClick={() => setLangOpen(!langOpen)}
               className="flex items-center gap-3 text-gray-700"
@@ -142,7 +141,7 @@ export default function Navbar() {
               </div>
             )}
 
-            {/* Botón Inscribete */}
+            {/* INSCRIBIR */}
             <Link
               to="/inscripcion"
               onClick={() => setOpen(false)}
@@ -150,6 +149,7 @@ export default function Navbar() {
             >
               Inscríbete
             </Link>
+
           </div>
         </div>
       )}

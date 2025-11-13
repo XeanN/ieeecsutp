@@ -1,4 +1,5 @@
-import { Target, Rocket, Linkedin, Instagram, Mail, Phone } from "lucide-react";
+import { Target, Rocket, Linkedin, Instagram } from "lucide-react";
+import Footer from "../components/Footer";
 
 export default function Nosotros() {
   return (
@@ -41,7 +42,7 @@ export default function Nosotros() {
 
           <div className="flex justify-center">
             <img
-              src="/assets/nosotros/brain-chip.png"
+              src={`${import.meta.env.BASE_URL}assets/nosotros/brain-chip.png`}
               className="w-64 md:w-80"
             />
           </div>
@@ -94,10 +95,9 @@ export default function Nosotros() {
             Nuestro Equipo
           </h2>
           <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
 
-          {/* Tabs simple */}
           <div className="flex gap-6 justify-center mb-10 text-gray-700 font-medium">
             <button className="hover:text-ieeeBlue">Junta directiva</button>
             <button className="hover:text-ieeeBlue">Líderes</button>
@@ -109,9 +109,7 @@ export default function Nosotros() {
             </div>
           </div>
 
-          {/* Cards de miembros */}
           <div className="grid md:grid-cols-3 gap-10 mt-6">
-
             {[1, 2, 3].map((p) => (
               <div key={p} className="text-center">
                 <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full"></div>
@@ -120,7 +118,7 @@ export default function Nosotros() {
                 <p className="text-gray-600 text-sm">Rol</p>
 
                 <p className="text-gray-600 text-sm mt-3 max-w-xs mx-auto">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Lorem ipsum dolor sit amet.
                 </p>
 
                 <div className="flex justify-center gap-4 mt-4 text-gray-700">
@@ -129,13 +127,12 @@ export default function Nosotros() {
                 </div>
               </div>
             ))}
-
           </div>
         </div>
       </section>
 
       {/* ===========================
-          NUESTRA HISTORIA (TIMELINE)
+          HISTORIA
       ============================ */}
       <section className="w-full bg-white py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
@@ -145,11 +142,11 @@ export default function Nosotros() {
           </h2>
 
           <p className="text-gray-600 mb-12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
 
           <img
-            src="/assets/nosotros/history-timeline.png"
+            src={`${import.meta.env.BASE_URL}assets/nosotros/history-timeline.png`}
             className="w-full mx-auto"
           />
 
@@ -163,12 +160,13 @@ export default function Nosotros() {
         <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
 
           <h2 className="text-3xl font-bold mb-4">EL IEEE</h2>
+
           <p className="text-gray-600 max-w-3xl mx-auto mb-12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
 
           <img
-            src="/assets/nosotros/ieee-structure.png"
+            src={`${import.meta.env.BASE_URL}assets/nosotros/ieee-structure.png`}
             className="w-full md:w-2/3 mx-auto"
           />
 
@@ -176,7 +174,7 @@ export default function Nosotros() {
       </section>
 
       {/* ===========================
-          CTA - CONVOCATORIA
+          CTA
       ============================ */}
       <section className="bg-gradient-to-b from-ieeeYellow/40 to-white py-20">
         <div className="max-w-4xl mx-auto text-center px-6">
@@ -186,7 +184,7 @@ export default function Nosotros() {
           </h3>
 
           <p className="text-gray-600 mb-6">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum is simply dummy text of the printing industry.
           </p>
 
           <a
@@ -198,6 +196,11 @@ export default function Nosotros() {
 
         </div>
       </section>
+
+      {/* ===========================
+          FOOTER
+      ============================ */}
+      <Footer />
 
     </div>
   );
