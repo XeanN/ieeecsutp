@@ -1,207 +1,243 @@
-import { Target, Rocket, Linkedin, Instagram } from "lucide-react";
+import {
+  Target,
+  Rocket,
+  Users,
+  Calendar,
+  BookOpen,
+  Globe,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 import Footer from "../components/Footer";
 
 export default function Nosotros() {
   return (
-    <div className="pt-24">
+    <div className="pt-24 w-full overflow-x-hidden">
 
-      {/* ===========================
-          HERO NOSOTROS
-      ============================ */}
+      {/* ======================================================
+          1. ¿QUIÉNES SOMOS?
+      ======================================================= */}
       <section className="w-full py-20 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 px-6 md:px-10 gap-10 items-center">
-          
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 px-6 md:px-12 gap-12 items-center">
+
           <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              Impulsamos tu futuro{" "}
-              <span className="text-ieeeBlue">profesional</span> y{" "}
-              <span className="text-ieeeYellow">digital.</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
+              Somos el capítulo estudiantil{" "}
+              <span className="text-ieeeBlue">IEEE Computer Society UTP</span>
             </h1>
 
-            <p className="text-gray-700 mt-4 max-w-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget
-              accumsan ante. Vestibulum id dolor.
+            <p className="text-gray-700 mt-6 leading-relaxed text-lg">
+              Una comunidad académica dedicada a la tecnología, innovación y el
+              desarrollo profesional de los estudiantes de la Universidad
+              Tecnológica del Perú.  
+              Promovemos el aprendizaje colaborativo, la investigación y la
+              participación en proyectos que impulsan el crecimiento personal y
+              profesional dentro del ecosistema IEEE.
             </p>
 
-            <div className="flex gap-6 mt-6">
-              <a
-                className="bg-ieeeYellow font-semibold text-black px-6 py-3 rounded-md hover:bg-yellow-500 transition"
-                href="#organizacion"
-              >
-                Conoce la Organización
-              </a>
-
-              <a
-                className="font-semibold text-gray-700 hover:text-ieeeBlue transition"
-                href="#equipo"
-              >
-                Nuestro Equipo
-              </a>
-            </div>
+            <p className="text-gray-700 mt-4 leading-relaxed">
+              Formamos líderes, promovemos el talento y conectamos a los
+              estudiantes con oportunidades globales en ciencia de la computación,
+              ingeniería y tecnologías emergentes.
+            </p>
           </div>
 
           <div className="flex justify-center">
             <img
-              src={`${import.meta.env.BASE_URL}assets/nosotros/brain-chip.png`}
-              className="w-64 md:w-80"
+              src="/assets/nosotros/brain-chip.png"
+              className="w-72 md:w-96"
+              alt="IEEE Innovation"
             />
           </div>
-
         </div>
       </section>
 
-      {/* ===========================
-          MISIÓN & VISIÓN
-      ============================ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-10">
+      {/* ======================================================
+          2. MISIÓN & 3. VISIÓN
+      ======================================================= */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 px-6 md:px-12 gap-16">
 
           {/* Misión */}
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Target size={28} />
-              <h3 className="text-2xl font-bold">Misión</h3>
+          <div className="bg-white rounded-xl shadow p-10">
+            <div className="flex items-center gap-3 mb-4">
+              <Target size={32} className="text-ieeeBlue" />
+              <h3 className="text-3xl font-bold text-gray-900">Misión</h3>
             </div>
+
             <p className="text-gray-700 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              sit amet vestibulum justo. Praesent arcu ex, ornare sed turpis ac,
-              volutpat gravida tortor. Morbi nec maximus felis, ornare tempus turpis.
+              Fomentar el crecimiento académico y profesional de los estudiantes
+              mediante actividades, proyectos y experiencias que fortalezcan sus
+              habilidades técnicas, liderazgo, innovación y responsabilidad social.
             </p>
           </div>
 
           {/* Visión */}
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Rocket size={28} />
-              <h3 className="text-2xl font-bold">Visión</h3>
+          <div className="bg-white rounded-xl shadow p-10">
+            <div className="flex items-center gap-3 mb-4">
+              <Rocket size={32} className="text-ieeeBlue" />
+              <h3 className="text-3xl font-bold text-gray-900">Visión</h3>
             </div>
+
             <p className="text-gray-700 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              sit amet vestibulum justo. Praesent arcu ex, ornare sed turpis ac,
-              volutpat gravida tortor. Morbi nec maximus felis, ornare tempus turpis.
+              Ser un referente nacional e internacional en la formación de líderes
+              estudiantiles en tecnología, promoviendo investigación, desarrollo de
+              proyectos innovadores y conexiones globales con IEEE.
             </p>
           </div>
 
         </div>
       </section>
 
-      {/* ===========================
-          NUESTRO EQUIPO
-      ============================ */}
-      <section id="equipo" className="w-full py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+      {/* ======================================================
+          4. NUESTRA HISTORIA (TIMELINE)
+      ======================================================= */}
+      <section className="w-full py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Nuestro Equipo
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Nuestra Historia
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+          <p className="text-gray-600 mb-14 max-w-2xl mx-auto">
+            A lo largo de los años, hemos consolidado un capítulo sólido con
+            impacto en cientos de estudiantes.  
+            Este es nuestro camino.
           </p>
 
-          <div className="flex gap-6 justify-center mb-10 text-gray-700 font-medium">
-            <button className="hover:text-ieeeBlue">Junta directiva</button>
-            <button className="hover:text-ieeeBlue">Líderes</button>
-            <button className="hover:text-ieeeBlue">Colíderes</button>
+          <img
+            src="/assets/nosotros/history-timeline.png"
+            className="w-full mx-auto"
+            alt="IEEE Timeline"
+          />
+        </div>
+      </section>
 
-            <div className="flex items-center gap-1">
-              <span>2025</span>
-              <span className="bg-ieeeYellow w-4 h-4 rounded-sm"></span>
-            </div>
-          </div>
+      {/* ======================================================
+          5. JUNTA DIRECTIVA
+      ======================================================= */}
+      <section className="w-full py-24 bg-gray-50" id="junta">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-          <div className="grid md:grid-cols-3 gap-10 mt-6">
-            {[1, 2, 3].map((p) => (
-              <div key={p} className="text-center">
-                <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full"></div>
+          <h2 className="text-4xl font-bold text-center mb-2 text-gray-900">
+            Junta Directiva 2025
+          </h2>
+          <p className="text-center text-gray-600 mb-14">
+            Conoce a los líderes que guían la visión y el crecimiento del capítulo.
+          </p>
 
-                <h3 className="font-bold mt-4">Nombre Apellido</h3>
-                <p className="text-gray-600 text-sm">Rol</p>
-
-                <p className="text-gray-600 text-sm mt-3 max-w-xs mx-auto">
-                  Lorem ipsum dolor sit amet.
-                </p>
+          <div className="grid md:grid-cols-4 gap-12">
+            {[
+              { name: "Alfredo Beraun", role: "Presidente" },
+              { name: "Angel Ponce", role: "Vicepresidente" },
+              { name: "Luis Escobedo", role: "Secretario" },
+              { name: "Luis Ramírez", role: "Tesorero" },
+            ].map((p, i) => (
+              <div key={i} className="text-center">
+                <div className="w-28 h-28 mx-auto rounded-full bg-gray-300"></div>
+                <h3 className="font-bold mt-4 text-lg">{p.name}</h3>
+                <p className="text-gray-600 text-sm">{p.role}</p>
 
                 <div className="flex justify-center gap-4 mt-4 text-gray-700">
-                  <Linkedin size={22} className="hover:text-ieeeBlue" />
-                  <Instagram size={22} className="hover:text-ieeeBlue" />
+                  <Linkedin size={22} className="hover:text-ieeeBlue cursor-pointer" />
+                  <Instagram size={22} className="hover:text-ieeeBlue cursor-pointer" />
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ===========================
-          HISTORIA
-      ============================ */}
-      <section className="w-full bg-white py-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
+      {/* ======================================================
+          6. LÍDERES DE COMITÉS
+      ======================================================= */}
+      <section className="w-full py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Nuestra Historia
+          <h2 className="text-4xl font-bold text-center mb-2 text-gray-900">
+            Líderes de Comités
+          </h2>
+          <p className="text-center text-gray-600 mb-14">
+            Equipos que dirigen las áreas estratégicas del capítulo.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-10">
+
+            {[
+              "Publicidad y Marketing",
+              "Podcast",
+              "Proyectos",
+              "Investigación",
+              "Editorial de Revista",
+              "Recursos Humanos y Talento",
+              "Desarrollo de Videojuegos",
+              "IA & Ciencia de Datos"
+            ].map((comite, i) => (
+              <div key={i} className="rounded-xl shadow p-8 bg-gray-50 hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-gray-900">{comite}</h3>
+                <p className="text-gray-600 text-sm mt-2">
+                  Líder: Pendiente <br />
+                  Colíder: Pendiente
+                </p>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================
+          7. ALIADOS A DETALLE
+      ======================================================= */}
+      <section className="w-full py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            Nuestros Aliados
           </h2>
 
-          <p className="text-gray-600 mb-12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <p className="text-gray-600 max-w-3xl mx-auto mb-12">
+            Colaboraciones que fortalecen nuestro impacto estudiantil y fomentan el
+            desarrollo de proyectos y actividades significativas.
           </p>
 
           <img
-            src={`${import.meta.env.BASE_URL}assets/nosotros/history-timeline.png`}
-            className="w-full mx-auto"
+            src="/assets/nosotros/partners.png"
+            className="w-full md:w-2/3 mx-auto"
+            alt="Aliados IEEE"
           />
-
         </div>
       </section>
 
-      {/* ===========================
-          EL IEEE
-      ============================ */}
-      <section className="w-full py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
+      {/* ======================================================
+          8. IEEE GLOBAL
+      ======================================================= */}
+      <section className="w-full py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
 
-          <h2 className="text-3xl font-bold mb-4">EL IEEE</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            Conoce la Agrupación Profesional Global IEEE
+          </h2>
 
           <p className="text-gray-600 max-w-3xl mx-auto mb-12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            IEEE es la organización profesional más grande del mundo dedicada a la
+            ingeniería, tecnología e innovación.  
+            Formar parte de este ecosistema abre puertas a certificaciones,
+            conferencias, publicaciones, investigación y una red global de
+            profesionales.
           </p>
 
           <img
-            src={`${import.meta.env.BASE_URL}assets/nosotros/ieee-structure.png`}
+            src="/assets/nosotros/ieee-structure.png"
             className="w-full md:w-2/3 mx-auto"
+            alt="IEEE Global Structure"
           />
-
         </div>
       </section>
 
-      {/* ===========================
-          CTA
-      ============================ */}
-      <section className="bg-gradient-to-b from-ieeeYellow/40 to-white py-20">
-        <div className="max-w-4xl mx-auto text-center px-6">
-
-          <h3 className="text-xl md:text-2xl font-bold mb-4">
-            Sé parte del capítulo estudiantil IEEE Computer Society UTP mediante la Convocatoria activa 2025-2
-          </h3>
-
-          <p className="text-gray-600 mb-6">
-            Lorem Ipsum is simply dummy text of the printing industry.
-          </p>
-
-          <a
-            className="bg-ieeeYellow px-6 py-3 rounded-md font-semibold hover:bg-yellow-500 transition"
-            href="/unete"
-          >
-            Postular
-          </a>
-
-        </div>
-      </section>
-
-      {/* ===========================
-          FOOTER
-      ============================ */}
+      {/* FOOTER */}
       <Footer />
-
     </div>
   );
 }

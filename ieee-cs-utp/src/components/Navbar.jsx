@@ -11,7 +11,7 @@ export default function Navbar() {
     { path: "/nosotros", label: "Nosotros" },
     { path: "/comites", label: "Comités" },
     { path: "/experiencias", label: "Experiencias" },
-    { path: "/impacto", label: "Nuestro impacto" },
+    { path: "/nuestro-impacto", label: "Nuestro impacto" }
   ];
 
   return (
@@ -81,7 +81,7 @@ export default function Navbar() {
           {/* INSCRIBIR */}
 
           <Link
-            to="/inscripcion"
+            to="/inscribete"
             className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold"
           >
             Inscríbete
