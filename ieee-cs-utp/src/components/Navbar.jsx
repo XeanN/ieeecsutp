@@ -1,92 +1,158 @@
 import { useState } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { NavLink, Link } from "react-router-dom";
+import { Menu, X, Globe, Monitor } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+
+  const navItems = [
+    { path: "/", label: "Inicio" },
+    { path: "/nosotros", label: "Nosotros" },
+    { path: "/comites", label: "Comités" },
+    { path: "/experiencias", label: "Experiencias" },
+    { path: "/impacto", label: "Nuestro impacto" },
+  ];
 
   return (
-    <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full bg-white shadow z-50">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-        {/* LOGOS UTP + IEEE */}
-        <div className="flex items-center gap-4">
-          <img 
-            src="/assets/logos/utp.png" 
-            alt="UTP Logo" 
-            className="h-10"
+        {/* -------- LOGO -------- */}
+        <Link to="/" className="flex items-center gap-4">
+          <img
+            src="/ieeecsutp/logo.png"
+            alt="IEEE CS UTP"
+            className="h-12"
           />
-          <img 
-            src="/assets/logos/ieee-cs.png" 
-            alt="IEEE CS Logo" 
-            className="h-10"
-          />
-        </div>
+        </Link>
 
-        {/* LINKS (Desktop) */}
-        <ul className="hidden md:flex items-center gap-8 font-medium">
-          <li><a href="/" className="hover:text-ieeeBlue">Inicio</a></li>
-          <li><a href="/nosotros" className="hover:text-ieeeBlue">Nosotros</a></li>
-          <li><a href="/comites" className="hover:text-ieeeBlue">Comités</a></li>
-          <li><a href="/entretenimiento" className="hover:text-ieeeBlue">Entretenimiento</a></li>
-          <li><a href="/noticias" className="hover:text-ieeeBlue">Noticias</a></li>
-        </ul>
+        {/* -------- MENÚ DESKTOP -------- */}
+        <div className="hidden md:flex items-center gap-8">
 
-        {/* Botones derecha */}
-        <div className="hidden md:flex items-center gap-4">
+          {/* Links */}
+          {navItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `font-medium text-sm transition ${
+                  isActive
+                    ? "text-orange-600 font-semibold"
+                    : "text-gray-700 hover:text-black"
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
 
-          {/* Selector de idioma */}
-          <button className="flex items-center gap-1 hover:text-ieeeBlue">
-            <Globe size={18} />
-            <span>Español</span>
+          {/* -------- BOTÓN SISTEMA -------- */}
+          <button className="flex items-center gap-2 text-gray-700 hover:text-black">
+            <Monitor size={18} />
+            <span className="text-sm font-medium">Sistema</span>
           </button>
 
-          {/* Botón Inscribirse */}
-          <a 
-            href="/unete"
-            className="bg-ieeeYellow hover:bg-yellow-500 transition px-4 py-2 rounded-md font-semibold"
-          >
-            Inscríbete
-          </a>
-        </div>
-
-        {/* Botón móvil */}
-        <button 
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* MENU MOBILE */}
-      {open && (
-        <div className="md:hidden bg-white shadow-lg px-6 py-4">
-          <ul className="flex flex-col gap-4 font-medium">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/comites">Comités</a></li>
-            <li><a href="/entretenimiento">Entretenimiento</a></li>
-            <li><a href="/noticias">Noticias</a></li>
-          </ul>
-
-          <hr className="my-3" />
-
-          <div className="flex flex-col gap-3">
-            {/* Idioma */}
-            <button className="flex items-center gap-2">
+          {/* -------- SELECTOR DE IDIOMA -------- */}
+          <div className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1 text-gray-700 hover:text-black"
+            >
               <Globe size={18} />
-              Español
+              <span className="text-sm font-medium">Español</span>
             </button>
 
-            <a 
-              href="/unete"
-              className="bg-ieeeYellow text-center py-2 rounded-md font-semibold"
+            {langOpen && (
+              <div className="absolute right-0 bg-white shadow-md rounded p-2 w-28">
+                <button
+                  onClick={() => setLangOpen(false)}
+                  className="w-full text-left px-2 py-1 hover:bg-gray-100 text-sm"
+                >
+                  Español
+                </button>
+                <button
+                  onClick={() => setLangOpen(false)}
+                  className="w-full text-left px-2 py-1 hover:bg-gray-100 text-sm"
+                >
+                  Inglés
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* -------- BOTÓN INSCRIBETE -------- */}
+          <Link
+            to="/inscripcion"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+          >
+            Inscríbete
+          </Link>
+        </div>
+
+        {/* -------- MENÚ MOBILE BUTTON -------- */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-gray-800"
+        >
+          {open ? <X size={30} /> : <Menu size={30} />}
+        </button>
+      </div>
+
+      {/* -------- MENÚ MOBILE DESPLEGABLE -------- */}
+      {open && (
+        <div className="md:hidden bg-white shadow px-6 pb-6">
+
+          <div className="flex flex-col gap-5 mt-4">
+
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `text-base font-medium ${
+                    isActive ? "text-orange-600" : "text-gray-700"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+
+            {/* Sistema */}
+            <button className="flex items-center gap-3 text-gray-700">
+              <Monitor size={20} />
+              <span className="font-medium">Sistema</span>
+            </button>
+
+            {/* Selector de idioma */}
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-3 text-gray-700"
+            >
+              <Globe size={20} />
+              <span className="font-medium">Idioma</span>
+            </button>
+
+            {langOpen && (
+              <div className="bg-white border rounded p-2">
+                <p className="px-2 py-1 hover:bg-gray-100">Español</p>
+                <p className="px-2 py-1 hover:bg-gray-100">Inglés</p>
+              </div>
+            )}
+
+            {/* Botón Inscribete */}
+            <Link
+              to="/inscripcion"
+              onClick={() => setOpen(false)}
+              className="bg-orange-500 hover:bg-orange-600 text-white text-center py-3 rounded-lg font-semibold"
             >
               Inscríbete
-            </a>
+            </Link>
           </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 }
